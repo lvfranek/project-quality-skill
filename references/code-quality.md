@@ -27,7 +27,6 @@ Run and record: lint (errors/warnings), typecheck, tests (pass/fail), build (suc
 Quality over coverage. No coverage percentage targets, no snapshot spam.
 - **Unit tests** for pure logic: utils, validation, formatting, state/reducers. Runner: Vitest (Vite, Next, React, Vue) or the runner the Angular project already uses.
 - **Component tests** for 2–3 key components with Testing Library (Angular Testing Library for Angular): test what the user sees and does, not implementation details.
-- **1–3 E2E tests** with Playwright for the main user flow (e.g. sign in → create task → task appears). This is the test that impresses the most.
 - Tests are deterministic and don't hit real external services (mock them, or use a separate test project).
 
 ### CI with GitHub Actions
@@ -67,8 +66,8 @@ jobs:
 Adapt package manager, env variable names and test command to the project. Check that the action versions are current.
 
 ## Extra mile
-- Playwright E2E job in CI (with `npx playwright install --with-deps`).
-- Lighthouse CI job (accessibility ≥ 95, performance ≥ 90).
+- **1–3 E2E tests** with Playwright for the main user flow (e.g. sign in → create task → task appears), run in a CI job (with `npx playwright install --with-deps`). This is the test that impresses the most, but it's real extra infrastructure (browser install, potential flakiness) on top of unit/component tests — worth it, not a minimum.
+- Lighthouse CI — one `lighthouserc.json` that covers accessibility, best practices, SEO and performance in a single setup (thresholds: accessibility ≥ 95, performance ≥ 90).
 - Dependabot (`.github/dependabot.yml`, weekly, grouped minor/patch updates, also for GitHub Actions).
 - Pre-commit hooks: `husky` + `lint-staged` (lint + format staged files).
 - Branch protection on `main`: CI must pass before merge.

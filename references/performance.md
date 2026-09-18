@@ -40,7 +40,7 @@
 - `preconnect` to origins needed early (e.g. the Supabase URL).
 
 ## Extra mile
-- Lighthouse CI in GitHub Actions with budgets (performance ≥ 90, bundle size limits).
+- Lighthouse CI — see `code-quality.md` Extra mile (one setup, covers performance together with accessibility/best practices/SEO).
 - Angular `budgets` / `size-limit` to fail the build when bundles grow.
 - Prefetching of likely next routes.
 - Optimistic UI for common actions.

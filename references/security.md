@@ -21,8 +21,7 @@ Portfolio projects are public. Reviewers (and bots) will look at the code, and a
 
 ### Rate limiting & abuse
 - **Supabase Auth** already rate-limits sign-in, sign-up, OTP and password-reset emails. Check the values in Dashboard → Authentication → Rate Limits and set up your own SMTP for real email sending (the built-in one is very limited).
-- Public sign-up: add CAPTCHA (Cloudflare Turnstile or hCaptcha, supported by Supabase Auth).
-- **Own endpoints** (Next.js route handlers/server actions, edge functions, contact form, anything calling a paid API like OpenAI) are **not** covered by Supabase — they need their own rate limiting (e.g. Upstash Ratelimit, or the hosting firewall/WAF rules).
+- **Own endpoints** (Next.js route handlers/server actions, edge functions, contact form, anything calling a paid API like OpenAI) are **not** covered by Supabase — they need their own rate limiting. For a portfolio project without meaningful real traffic, a simple in-memory rate limiter (no new account needed) is enough for Essential; Upstash Ratelimit and CAPTCHA are only needed once there is real public traffic (see Extra mile).
 - Contact forms: rate limit + honeypot field.
 
 ### Input & output
@@ -50,6 +49,8 @@ Check the deployed site with securityheaders.com.
 - Strict CSP with nonces.
 - GitHub secret scanning + push protection, Dependabot security updates, CodeQL workflow.
 - Account deletion in the app (also helps with GDPR).
+- Public sign-up: CAPTCHA (Cloudflare Turnstile or hCaptcha, supported by Supabase Auth) — worth it once there is real public traffic.
+- Own endpoints: dedicated rate limiting infra (e.g. Upstash Ratelimit, or the hosting firewall/WAF rules) once the in-memory limiter isn't enough anymore.
 
 ## Report
 Findings by severity (critical/high/medium/low), before/after. For every secret found: where, and confirmation that the user has rotated it (you can't do that yourself).

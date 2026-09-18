@@ -58,7 +58,7 @@ Walk every page with **Tab, Shift+Tab, Enter, Space, Esc and arrow keys**, once 
 - Screen-reader smoke test: VoiceOver (macOS, Cmd+F5) or NVDA (Windows). Navigate by headings, landmarks and form fields; open a menu and a dialog.
 - Lint rules: `eslint-plugin-jsx-a11y` (React/Next) or `@angular-eslint` template accessibility rules.
 - Automated a11y tests with `@axe-core/playwright` for the main pages, running in CI.
-- Lighthouse CI in GitHub Actions with a minimum accessibility score of 95.
+- Lighthouse CI — see `code-quality.md` Extra mile (one setup, covers accessibility together with best practices/SEO/performance).
 - Dark mode via `prefers-color-scheme`, with checked contrast in both themes.
 
 ## Report
