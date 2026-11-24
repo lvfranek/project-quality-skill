@@ -26,7 +26,7 @@ If the user names one area, load only that reference file. For a **full audit**,
 | 5 | SEO & sharing | `references/seo.md` | Metadata, previews |
 | 6 | Security | `references/security.md` | Secrets, backend, headers |
 | 7 | Legal (Germany) | `references/legal-de.md` | Needs the final list of services. Tailored to German law — skip or replace with local requirements for projects/users outside Germany |
-| 8 | README & repo polish | `references/readme.md` | Last, because it describes the final state |
+| 8 | README & repo polish | `references/readme.md` | Last, because it describes the final state. Short: under 900 words |
 
 If the user only wants a quick check: run the **Essential** items of every phase as a read-only audit and deliver one combined report, without fixing.
 
